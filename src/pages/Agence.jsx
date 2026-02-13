@@ -15,16 +15,26 @@ const Agence = () => {
 'https://k72.ca/images/teamMembers/CAMILLE_480X640_2.jpg?w=480&h=640&fit=crop&s=74317575b2d72fd11c5296615c383e4a',
 'https://k72.ca/images/teamMembers/MEGGIE_480X640_2.jpg?w=480&h=640&fit=crop&s=3604b19f8fc7b40f517954147698d847',
 'https://k72.ca/images/teamMembers/joel_480X640_3.jpg?w=480&h=640&fit=crop&s=1cadbf143b3aa916b1b414464acbb4d6'
+
  ]
  useGSAP(function(){
   gsap.to(imageDivRef.current,{
     scrollTrigger:{
          trigger:imageDivRef.current,
-         markers:true,
          start:'top 30%',
          end:'top -83%',
          scrub:true,
-         pin:true
+         pin:true,
+         onUpdate:function(e){
+          let imageIndex;
+          if(e.progress < 1){
+                imageIndex = Math.floor(e.progress * imageArray.length);
+          }
+           else{
+            imageIndex = e.progress * imageArray.length - 1;
+           }
+         imageRef.current.src = imageArray[imageIndex];
+         }
     }
   })
 
