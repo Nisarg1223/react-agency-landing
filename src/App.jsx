@@ -12,14 +12,14 @@ const App = () => {
   const stairParentRef = useRef(null)
   return (
     <div className='text-white'>
-  <Navbar/>
+  {/* <Navbar/> */}
   <FullscreenNav/>
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<Home/>}/>
           <Route path='/agence' element={<Agence/>}/>
           <Route path='/projects' element={<Projects/>}/>
 
-      </Routes>
+      </Routes> */}
     </div>
   )
 }
